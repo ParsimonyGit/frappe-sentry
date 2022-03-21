@@ -1,6 +1,9 @@
+import sys
+
 import frappe
 import sentry_sdk
 from sentry_sdk.integrations.rq import RqIntegration
+
 
 def init_sentry():
 	sentry_dsn = get_sentry_dsn()
@@ -10,12 +13,17 @@ def init_sentry():
 	if sentry_enabled():
 		sentry_sdk.init(sentry_dsn, integrations=[RqIntegration()])
 
-def capture_exception():
+def capture_exception(message=None, title=None):
 	init_sentry()
 	with sentry_sdk.configure_scope() as scope:
 		scope.user = {"email": frappe.session.user}
 		scope.set_tag("site", frappe.local.site)
-	sentry_sdk.capture_exception()
+	
+	if sys.exc_info()[0] is not None:
+		sentry_sdk.capture_exception()
+	else:
+		sentry_sdk.set_context("Error Log Message", {"message" : message})
+		sentry_sdk.capture_message(f"Error Log - {title}")
 
 @frappe.whitelist(allow_guest=True)
 def get_sentry_dsn():

@@ -7,10 +7,15 @@ if (frappe.boot.sentry_dsn) {
 			dsn: frappe.boot.sentry_dsn,
 			integrations: [new Integrations.BrowserTracing({
 				beforeNavigate: context => {
-					let route = frappe.router.current_route ? frappe.get_route() : ["app"];
+					const route = frappe.router.current_route
+						// get a shallow copy of the route to avoid modifying cache
+						? frappe.get_route().slice()
+						: ["app"];
+
 					if (route[0].toLowerCase() === "form") {
 						route[2] = "<ID>";
 					}
+
 					return {
 						...context,
 						name: route.join("/")

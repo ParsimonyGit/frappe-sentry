@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 from . import __version__ as app_version
 
 app_name = "sentry"
 app_title = "Sentry"
-app_publisher = "AgriTheory"
+app_publisher = "Parsimony LLC"
 app_description = "Error Reporting and Telemetry"
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
-app_email = "support@agritheory.dev"
+app_email = "support@parsimony.com"
 app_license = "MIT"
 
 # Includes in <head>

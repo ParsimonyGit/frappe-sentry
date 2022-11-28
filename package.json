@@ -2,11 +2,11 @@
   "name": "sentry",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/agritheory/frappe-sentry.git"
+    "url": "git+https://github.com/ParsimonyGit/frappe-sentry.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/agritheory/frappe-sentry/issues"
+    "url": "https://github.com/ParsimonyGit/frappe-sentry/issues"
   },
   "dependencies": {
     "@sentry/browser": "^6.19.7",

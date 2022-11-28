@@ -15,11 +15,11 @@ app_license = "MIT"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/sentry/css/sentry.css"
-app_include_js = "/assets/js/sentry.min.js"
+app_include_js = "sentry.bundle.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/sentry/css/sentry.css"
-web_include_js = "/assets/js/sentry-web.min.js"
+web_include_js = "sentry-web.bundle.js"
 
 
 boot_session = "sentry.sentry.boot.boot_session"

@@ -12,8 +12,9 @@ def init_sentry():
 		sentry_sdk.init(sentry_details.dsn, integrations=[RqIntegration()])
 
 
-def capture_exception(message=None, title=None):
+def capture_exception(title=None, message=None, reference_doctype=None, reference_name=None):
 	init_sentry()
+
 	with sentry_sdk.configure_scope() as scope:
 		scope.user = {"email": frappe.session.user}
 		scope.set_tag("site", frappe.conf.get("sentry_site", frappe.local.site))
@@ -21,6 +22,11 @@ def capture_exception(message=None, title=None):
 		scope.set_tag(
 			"server_name", frappe.conf.get("sentry_server_name", frappe.local.site)
 		)
+
+		if reference_doctype and reference_name:
+			scope.set_tag("reference_doctype", reference_doctype)
+			scope.set_tag("reference_name", reference_name)
+
 	sentry_sdk.capture_exception()
 
 

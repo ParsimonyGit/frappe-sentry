@@ -2,7 +2,7 @@ import * as Sentry from '@sentry/browser'
 import { CaptureConsole, Offline } from '@sentry/integrations'
 import { Integrations } from "@sentry/tracing"
 
-if (frappe.boot.sentry.dsn) {
+if (frappe.boot.sentry?.dsn) {
 	Sentry.init(
 		{
 			dsn: frappe.boot.sentry_dsn,

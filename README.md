@@ -1,27 +1,32 @@
 ## Sentry
 
-Sends errors and performance data to Sentry. Compatible with Frappe / ERPNext v12 and v13 (Use `master-v13` branch for v13)
+Sends errors and performance data to Sentry. Compatible with Frappe / ERPNext v14.
 
-## Features
+### Features
 
 - Sends front-end and backend errors to Sentry
 - Performance monitoring (only front-end)
 - Sends account email and site when error occurs
 - If `frappe.log_error` is called without exception, it takes the message and title and passes that to Sentry
 
-## Configuring Sentry
+### Configuring Sentry
 
-You need to get the Sentry DSN and add it to the `common_site_config.json` file.
+You can add the following keys to either the `common_site_config.json` file, or a specific site's `site_config.json` file.
 
-```
+**Note**: Adding any key to a site's `site_config.json` file will override that attribute's value in the `common_site_config.json` file.
+
+```json
 {
-    "sentry_dsn": "https://<key>:<secret>@sentry.io/<project_id>"
+    ...
+    "enable_sentry_developer_mode": true, // to enable sentry when `developer_mode` is active
+    "sentry_dsn": "https://<key>:<secret>@sentry.io/<project_id>",  // fetch from a Sentry project's settings
+    "sentry_site": "", // optional attribute to tag events with a site; default: site URL
+    "sentry_project": "", // optional attribute to tag events with a project; default: site URL
+    "sentry_server_name": "", // optional attribute to tag events with a server name; default: site URL
+    ...
 }
 ```
 
-Adding it to the `site_config.json` file for a site will override the Sentry DSN in the `common_site_config.json` file.
-
-By default Sentry will not log errors if `developer_mode` is set to True. For enabling Sentry in developer mode you must set the `enable_sentry_developer_mode` key as True in the `site_config.json` or `common_site_config.json` file.
-#### License
+### License
 
 MIT

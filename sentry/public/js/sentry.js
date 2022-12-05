@@ -5,7 +5,7 @@ import { Integrations } from "@sentry/tracing"
 if (frappe.boot.sentry?.dsn) {
 	Sentry.init(
 		{
-			dsn: frappe.boot.sentry_dsn,
+			dsn: frappe.boot.sentry.dsn,
 			integrations: [
 				new Integrations.BrowserTracing({
 					beforeNavigate: context => {

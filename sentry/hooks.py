@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from . import __version__ as app_version
 
 app_name = "sentry"
@@ -7,7 +6,7 @@ app_publisher = "Parsimony LLC"
 app_description = "Error Reporting and Telemetry"
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
-app_email = "support@parsimony.com"
+app_email = "developers@parsimony.com"
 app_license = "MIT"
 
 # Includes in <head>
@@ -15,11 +14,11 @@ app_license = "MIT"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/sentry/css/sentry.css"
-app_include_js = "sentry.bundle.js"
+app_include_js = ["sentry.bundle.js"]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/sentry/css/sentry.css"
-web_include_js = "sentry-web.bundle.js"
+web_include_js = ["sentry-web.bundle.js"]
 
 
 boot_session = "sentry.sentry.boot.boot_session"
@@ -41,7 +40,7 @@ boot_session = "sentry.sentry.boot.boot_session"
 
 # website user home page (by Role)
 # role_home_page = {
-#	"Role": "home_page"
+# 	"Role": "home_page"
 # }
 
 # Website user home page (by function)
@@ -86,7 +85,7 @@ boot_session = "sentry.sentry.boot.boot_session"
 # 		"on_update": "method",
 # 		"on_cancel": "method",
 # 		"on_trash": "method"
-#	}
+# 	}
 # }
 
 # Scheduled Tasks

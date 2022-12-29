@@ -1,4 +1,5 @@
 import frappe
+
 from sentry.sentry.utils import get_sentry_details
 
 

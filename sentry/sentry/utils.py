@@ -11,12 +11,10 @@ def init_sentry():
 	if sentry_enabled():
 		sentry_sdk.init(
 			sentry_details.dsn,
-			debug=True,
+			enable_tracing=True,
 			integrations=[RqIntegration()],
 			traces_sample_rate=1.0,
-			_experiments={
-				"profiles_sample_rate": 1.0,
-			},
+			profiles_sample_rate=1.0,
 		)
 
 

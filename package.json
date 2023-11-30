@@ -9,8 +9,7 @@
     "url": "https://github.com/ParsimonyGit/frappe-sentry/issues"
   },
   "dependencies": {
-    "@sentry/browser": "^7.28.1",
-    "@sentry/integrations": "^7.28.1",
-    "@sentry/tracing": "^7.28.1"
+    "@sentry/browser": "^7.83.0",
+    "@sentry/integrations": "^7.83.0"
   }
 }
